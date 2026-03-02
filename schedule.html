@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Chaudhary Scrap Trader · Schedule Pickup</title>
+  <!-- Google Font & Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f8fbf9;
+      color: #1e2b26;
+      line-height: 1.5;
+      padding-bottom: 80px;
+    }
+
+    /* ===== HEADER (fixed top) ===== */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: white;
+      box-shadow: 0 4px 20px rgba(0, 40, 20, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.8rem 5%;
+      z-index: 1000;
+      border-bottom: 1px solid #e0eee6;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: #0b3d2e;
+    }
+
+    .logo-icon {
+      background: #0b3d2e;
+      color: white;
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .call-btn {
+      background: #0b3d2e;
+      color: white;
+      text-decoration: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      white-space: nowrap;
+    }
+
+    .whatsapp-icon {
+      background: #25D366;
+      color: white;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      text-decoration: none;
+    }
+
+    /* ===== MAIN CONTENT ===== */
+    .main-content {
+      max-width: 700px;
+      margin: 100px auto 30px;
+      padding: 0 1.2rem;
+    }
+
+    /* ===== PAGE HEADER ===== */
+    .page-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .page-header h1 {
+      font-size: 2.5rem;
+      color: #0b3d2e;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .page-header p {
+      color: #3d6253;
+      font-size: 1.1rem;
+    }
+
+    /* ===== FORM CARD ===== */
+    .form-card {
+      background: white;
+      border-radius: 38px;
+      padding: 2.5rem 2rem;
+      box-shadow: 0 20px 40px -12px rgba(11, 61, 46, 0.15);
+      margin-bottom: 2rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.8rem;
+    }
+
+    .form-label {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 600;
+      color: #0b3d2e;
+      margin-bottom: 0.6rem;
+      font-size: 1rem;
+    }
+
+    .form-label i {
+      color: #0b3d2e;
+      font-size: 1.1rem;
+    }
+
+    .required::after {
+      content: "*";
+      color: #dc3545;
+      margin-left: 4px;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 1rem 1.5rem;
+      border: 2px solid #e2eee8;
+      border-radius: 34px;
+      font-size: 1rem;
+      background: #fbfefd;
+      transition: 0.2s;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: #0b3d2e;
+      box-shadow: 0 0 0 4px rgba(11, 61, 46, 0.08);
+    }
+
+    select.form-control {
+      appearance: none;
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230b3d2e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+      background-repeat: no-repeat;
+      background-position: right 1.5rem center;
+      background-size: 1.2rem;
+    }
+
+    textarea.form-control {
+      border-radius: 28px;
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .row-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+    }
+
+    /* Weight hint */
+    .weight-hint {
+      font-size: 0.85rem;
+      color: #dc3545;
+      margin-top: 0.3rem;
+      margin-left: 1rem;
+    }
+
+    .weight-hint i {
+      margin-right: 0.3rem;
+    }
+
+    /* Submit button */
+    .submit-btn {
+      background: #0b3d2e;
+      color: white;
+      border: none;
+      width: 100%;
+      padding: 1.3rem;
+      border-radius: 60px;
+      font-weight: 700;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-top: 2rem;
+    }
+
+    .submit-btn:hover {
+      background: #1a6043;
+      transform: translateY(-3px);
+      box-shadow: 0 15px 25px -8px rgba(11, 61, 46, 0.4);
+    }
+
+    /* Info note */
+    .info-note {
+      background: #e6f2ec;
+      border-radius: 24px;
+      padding: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .info-note i {
+      font-size: 1.8rem;
+      color: #0b3d2e;
+    }
+
+    .info-note p {
+      color: #1e3b30;
+      font-size: 0.95rem;
+    }
+
+    /* ===== BOTTOM NAVIGATION ===== */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: white;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 0.5rem 0 1rem;
+      box-shadow: 0 -5px 25px rgba(0, 30, 10, 0.08);
+      border-top: 1px solid #e2eee6;
+      z-index: 1000;
+    }
+
+    .nav-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      color: #7b9b8b;
+      font-size: 0.75rem;
+      transition: 0.2s;
+      flex: 1;
+    }
+
+    .nav-item i {
+      font-size: 1.5rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .nav-item.active {
+      color: #0b3d2e;
+      font-weight: 600;
+    }
+
+    .nav-item.active i {
+      color: #0b3d2e;
+    }
+
+    /* ===== WHATSAPP FLOAT ===== */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 90px;
+      right: 20px;
+      background: #25D366;
+      color: white;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      text-decoration: none;
+      box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+      z-index: 999;
+    }
+
+    /* ===== CUSTOM POPUP ===== */
+    .popup-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      visibility: hidden;
+      opacity: 0;
+      transition: 0.3s;
+    }
+
+    .popup-overlay.show {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .popup-card {
+      background: white;
+      max-width: 400px;
+      width: 90%;
+      border-radius: 38px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      box-shadow: 0 30px 50px rgba(0, 0, 0, 0.3);
+      transform: scale(0.8);
+      transition: 0.3s;
+    }
+
+    .popup-overlay.show .popup-card {
+      transform: scale(1);
+    }
+
+    .popup-icon {
+      background: #0b3d2e;
+      color: white;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      margin: 0 auto 1.5rem;
+    }
+
+    .popup-card h3 {
+      font-size: 1.8rem;
+      color: #0b3d2e;
+      margin-bottom: 0.8rem;
+    }
+
+    .popup-card p {
+      color: #3d6253;
+      margin-bottom: 2rem;
+    }
+
+    .popup-btn {
+      background: #0b3d2e;
+      color: white;
+      border: none;
+      padding: 1rem 2.5rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .popup-btn:hover {
+      background: #1a6043;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media screen and (max-width: 600px) {
+      .logo span {
+        font-size: 1rem;
+      }
+      .call-btn span {
+        display: none;
+      }
+      .call-btn {
+        padding: 0.6rem;
+      }
+      .form-card {
+        padding: 1.8rem 1.2rem;
+      }
+      .row-2 {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+      .page-header h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== HEADER (top fixed) ===== -->
+<header>
+  <div class="logo">
+    <div class="logo-icon"><i class="fas fa-recycle"></i></div>
+    <span>Chaudhary Scrap</span>
+  </div>
+  <div class="header-actions">
+    <a href="tel:9084462757" class="call-btn">
+      <i class="fas fa-phone-alt"></i> <span>90844 62757</span>
+    </a>
+    <a href="https://wa.me/919084462757" target="_blank" class="whatsapp-icon">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+  </div>
+</header>
+
+<!-- ===== MAIN CONTENT (Schedule Pickup Form) ===== -->
+<div class="main-content">
+  
+  <div class="page-header">
+    <h1>Schedule Pickup</h1>
+    <p>Book a free scrap pickup from your doorstep</p>
+  </div>
+
+  <!-- 
+    📧 EMAIL SETUP:
+    FormSubmit.co ka use kar rahe hain - free service
+    Apni email id yahan lagayein:
+    action="https://formsubmit.co/APKI-EMAIL-ID-YAHAN-LAGAYEIN"
+    
+    Example: action="https://formsubmit.co/chaudharyscrap@gmail.com"
+  -->
+  <form class="form-card" id="pickupForm" action="https://formsubmit.co/mynksisauli@gmail.com" method="POST">
+    <!-- FormSubmit ke liye hidden fields -->
+    <input type="hidden" name="_subject" value="🚛 New Pickup Request from Website">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_next" value="https://yourwebsite.com/success.html"> <!-- Yahan success page URL dalna -->
+    
+    <!-- Customer Name -->
+    <div class="form-group">
+      <div class="form-label"><i class="fas fa-user"></i> <span class="required">Full Name</span></div>
+      <input type="text" name="name" class="form-control" placeholder="Enter your full name" required>
+    </div>
+
+    <!-- Phone Number -->
+    <div class="form-group">
+      <div class="form-label"><i class="fas fa-phone"></i> <span class="required">Phone Number</span></div>
+      <input type="tel" name="phone" class="form-control" placeholder="10-digit mobile number" pattern="[0-9]{10}" required>
+    </div>
+
+    <!-- Address -->
+    <div class="form-group">
+      <div class="form-label"><i class="fas fa-map-pin"></i> <span class="required">Pickup Address</span></div>
+      <textarea name="address" class="form-control" placeholder="Complete address with landmark" required></textarea>
+    </div>
+
+    <!-- Scrap Category (Dropdown) -->
+    <div class="form-group">
+      <div class="form-label"><i class="fas fa-tag"></i> <span class="required">Scrap Category</span></div>
+      <select name="category" class="form-control" required>
+        <option value="" disabled selected>Select scrap type</option>
+        <option value="Newspaper">📰 Newspaper</option>
+        <option value="Iron">⚙️ Iron / Metal</option>
+        <option value="Aluminium">🥤 Aluminium</option>
+        
+        <option value="Other">📦 Other</option>
+      </select>
+    </div>
+
+    <!-- Weight (with min 2 ton validation) -->
+    <div class="form-group">
+      <div class="form-label"><i class="fas fa-weight-scale"></i> <span class="required">Approx. Weight</span></div>
+      <div class="row-2">
+        <input type="number" name="weight" id="weight" class="form-control" placeholder="Weight" min="2" step="0.5" required>
+        <select name="weight_unit" class="form-control">
+          <option value="kg">Kilograms (kg)</option>
+          <option value="ton" selected>Tons</option>
+          <option value="quintal">Quintals</option>
+        </select>
+      </div>
+      <div class="weight-hint" id="weightHint">
+        <i class="fas fa-info-circle"></i> Minimum 2 tons required for free pickup
+      </div>
+    </div>
+
+    <!-- Preferred Date -->
+    <div class="form-group">
+      <div class="form-label"><i class="fas fa-calendar"></i> <span class="required">Preferred Date</span></div>
+      <input type="date" name="date" class="form-control" id="pickupDate" required>
+    </div>
+
+    <!-- Preferred Time -->
+    <div class="form-group">
+      <div class="form-label"><i class="fas fa-clock"></i> Preferred Time</div>
+      <select name="time" class="form-control">
+        <option value="9am-12pm">Morning (9 AM - 12 PM)</option>
+        <option value="12pm-3pm">Afternoon (12 PM - 3 PM)</option>
+        <option value="3pm-6pm">Evening (3 PM - 6 PM)</option>
+        <option value="6pm-8pm">Late Evening (6 PM - 8 PM)</option>
+      </select>
+    </div>
+
+    <!-- Additional Notes -->
+    <div class="form-group">
+      <div class="form-label"><i class="fas fa-pen"></i> Additional Notes</div>
+      <textarea name="notes" class="form-control" placeholder="Any special instructions..."></textarea>
+    </div>
+
+    <!-- Info Note -->
+    <div class="info-note">
+      <i class="fas fa-truck"></i>
+      <p><strong>Free pickup only for 2 tons or more.</strong> For smaller quantity, please call us.</p>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" class="submit-btn" id="submitBtn">
+      <i class="fas fa-calendar-check"></i> Schedule Pickup
+    </button>
+  </form>
+
+  <!-- Extra spacing -->
+  <div style="height: 20px;"></div>
+</div>
+
+<!-- ===== BOTTOM FIXED NAVIGATION ===== -->
+<div class="bottom-nav">
+  <a href="#" class="nav-item">
+    <i class="fas fa-home"></i>
+    <span>Home</span>
+  </a>
+  <a href="#" class="nav-item">
+    <i class="fas fa-tags"></i>
+    <span>Scrap Rates</span>
+  </a>
+  <a href="#" class="nav-item active">
+    <i class="fas fa-calendar-alt"></i>
+    <span>Schedule</span>
+  </a>
+</div>
+
+<!-- ===== WHATSAPP FLOAT ===== -->
+<a href="https://wa.me/919084462757" target="_blank" class="whatsapp-float" aria-label="WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- ===== CUSTOM POPUP ===== -->
+<div class="popup-overlay" id="successPopup">
+  <div class="popup-card">
+    <div class="popup-icon">
+      <i class="fas fa-check"></i>
+    </div>
+    <h3>Success!</h3>
+    <p id="popupMessage">Your pickup request has been submitted. We'll contact you shortly.</p>
+    <button class="popup-btn" onclick="closePopup()">OK</button>
+  </div>
+</div>
+
+<!-- ===== SCRIPT FOR FORM HANDLING ===== -->
+<script>
+  // Date validation: today ya future date select ho
+  const today = new Date().toISOString().split('T')[0];
+  document.getElementById('pickupDate').setAttribute('min', today);
+
+  // Weight validation (client-side)
+  document.getElementById('pickupForm').addEventListener('submit', function(e) {
+    const weight = parseFloat(document.getElementById('weight').value);
+    const unit = document.querySelector('select[name="weight_unit"]').value;
+    
+    // Convert to tons if needed
+    let weightInTons = weight;
+    if (unit === 'kg') weightInTons = weight / 1000;
+    if (unit === 'quintal') weightInTons = weight / 10;
+    
+    if (weightInTons < 2) {
+      e.preventDefault();
+      alert('⚠️ Minimum 2 tons required for free pickup. For smaller quantity, please call us at 9084462757');
+      return;
+    }
+    
+    // Form submit hone se pehle popup show karna hai?
+    //但实际上, form submit hone ke baad user FormSubmit.co ke success page pe chala jayega
+    // Isliye hum popup ko tab show karenge jab hum AJAX use karenge
+    
+    // Agar aap chahte hain ki yahin pe popup aaye aur email bhi jaye, to ye possible hai
+    // Lekin uske liye AJAX (fetch) use karna hoga
+    
+    // Simple solution: FormSubmit.co pe bhejo aur wahan se redirect lekar aao
+    // Hum yahan popup nahi dikha sakte kyunki page redirect ho jayega
+    
+    // Alternative: AJAX se submit karte hain (neechay code)
+    e.preventDefault(); // Default submit roko
+    
+    const form = e.target;
+    const formData = new FormData(form);
+    
+    // Show loading state
+    document.getElementById('submitBtn').innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+    document.getElementById('submitBtn').disabled = true;
+    
+    // AJAX se form submit karo
+    fetch(form.action, {
+      method: 'POST',
+      body: formData
+    })
+    .then(response => {
+      // Success popup dikhao
+      document.getElementById('popupMessage').innerText = 'Your pickup request has been submitted. We\'ll contact you shortly. A confirmation email has been sent to you.';
+      document.getElementById('successPopup').classList.add('show');
+      
+      // Form reset karo
+      form.reset();
+      
+      // Submit button wapas enable karo
+      document.getElementById('submitBtn').innerHTML = '<i class="fas fa-calendar-check"></i> Schedule Pickup';
+      document.getElementById('submitBtn').disabled = false;
+    })
+    .catch(error => {
+      alert('Something went wrong. Please try again or call us.');
+      document.getElementById('submitBtn').innerHTML = '<i class="fas fa-calendar-check"></i> Schedule Pickup';
+      document.getElementById('submitBtn').disabled = false;
+    });
+  });
+
+  // Popup close function
+  function closePopup() {
+    document.getElementById('successPopup').classList.remove('show');
+  }
+
+  // Navigation active state
+  document.querySelectorAll('.nav-item').forEach(item => {
+    item.addEventListener('click', function(e) {
+      e.preventDefault();
+      document.querySelectorAll('.nav-item').forEach(nav => nav.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>
