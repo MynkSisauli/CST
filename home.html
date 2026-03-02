@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chaudhary Scrap Trader · Home</title>
+  <!-- Font Awesome & Google Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* ===== RESET & BASE ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f5faf7;
+      color: #1e2b26;
+      line-height: 1.5;
+      padding-bottom: 85px; /* Bottom nav ke liye space */
+    }
+
+    /* ===== HEADER (Fixed Top) ===== */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 5%;
+      box-shadow: 0 4px 15px rgba(0, 40, 20, 0.06);
+      z-index: 1000;
+      border-bottom: 1px solid #e0eee8;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-icon {
+      background: #0b3d2e;
+      color: white;
+      width: 45px;
+      height: 45px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      box-shadow: 0 6px 12px rgba(11, 61, 46, 0.2);
+    }
+
+    .logo span {
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: #0b3d2e;
+      letter-spacing: -0.3px;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .call-btn {
+      background: #0b3d2e;
+      color: white;
+      text-decoration: none;
+      padding: 10px 18px;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: 0.2s;
+      box-shadow: 0 6px 12px rgba(11, 61, 46, 0.15);
+    }
+
+    .call-btn:hover {
+      background: #145c43;
+      transform: translateY(-2px);
+    }
+
+    .whatsapp-icon {
+      background: #25D366;
+      color: white;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      text-decoration: none;
+      box-shadow: 0 6px 12px rgba(37, 211, 102, 0.25);
+      transition: 0.2s;
+    }
+
+    .whatsapp-icon:hover {
+      transform: scale(1.1);
+    }
+
+    /* ===== MAIN CONTENT ===== */
+    .main-content {
+      max-width: 1200px;
+      margin: 100px auto 30px;
+      padding: 0 20px;
+    }
+
+    /* ===== HERO SECTION ===== */
+    .hero {
+      background: linear-gradient(145deg, #0b3d2e, #1d6e4c);
+      color: white;
+      border-radius: 40px;
+      padding: 60px 30px;
+      text-align: center;
+      margin-bottom: 50px;
+      box-shadow: 0 25px 40px -15px rgba(11, 61, 46, 0.5);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: -20%;
+      right: -10%;
+      width: 300px;
+      height: 300px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 50%;
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 6vw, 3.5rem);
+      font-weight: 800;
+      margin-bottom: 15px;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-highlight {
+      color: #ffd966;
+      border-bottom: 3px solid rgba(255, 217, 102, 0.4);
+    }
+
+    .hero p {
+      font-size: clamp(1.1rem, 3vw, 1.3rem);
+      margin-bottom: 30px;
+      opacity: 0.95;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 32px;
+      border-radius: 60px;
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: all 0.25s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: #ffc107;
+      color: #0b3d2e;
+      box-shadow: 0 10px 20px -5px rgba(255, 193, 7, 0.4);
+    }
+
+    .btn-primary:hover {
+      background: #ffd033;
+      transform: translateY(-4px);
+      box-shadow: 0 20px 30px -8px #ffc107;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid rgba(255, 255, 255, 0.6);
+      color: white;
+      backdrop-filter: blur(5px);
+    }
+
+    .btn-outline:hover {
+      border-color: white;
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateY(-4px);
+    }
+
+    /* ===== SECTION TITLE ===== */
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-title h2 {
+      font-size: 2.5rem;
+      color: #0b3d2e;
+      font-weight: 700;
+      margin-bottom: 10px;
+      letter-spacing: -0.02em;
+    }
+
+    .section-title p {
+      color: #3d6253;
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* ===== CARDS GRID ===== */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      margin-bottom: 50px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 30px;
+      padding: 35px 25px;
+      box-shadow: 0 15px 30px -8px rgba(11, 61, 46, 0.08);
+      transition: all 0.3s;
+      text-align: center;
+      border: 1px solid rgba(11, 61, 46, 0.03);
+    }
+
+    .card:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 25px 45px -12px rgba(11, 61, 46, 0.2);
+    }
+
+    .card-icon {
+      background: #e8f3ee;
+      width: 80px;
+      height: 80px;
+      border-radius: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      color: #0b3d2e;
+      margin: 0 auto 25px;
+      transition: 0.2s;
+    }
+
+    .card:hover .card-icon {
+      background: #0b3d2e;
+      color: white;
+    }
+
+    .card h3 {
+      font-size: 1.5rem;
+      color: #0b3d2e;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+
+    .card p {
+      color: #3d6253;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* ===== PREMIUM BANNER ===== */
+    .premium-banner {
+      background: linear-gradient(115deg, #0f412f, #206b4b);
+      color: white;
+      border-radius: 40px;
+      padding: 60px 30px;
+      text-align: center;
+      margin: 50px 0;
+      position: relative;
+      isolation: isolate;
+    }
+
+    .premium-banner::after {
+      content: "₹X7";
+      position: absolute;
+      bottom: 10px;
+      right: 30px;
+      font-size: 8rem;
+      font-weight: 800;
+      color: rgba(255, 255, 255, 0.05);
+      z-index: -1;
+      line-height: 1;
+    }
+
+    .premium-banner h2 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+
+    .premium-banner p {
+      font-size: 1.3rem;
+      margin-bottom: 30px;
+      opacity: 0.95;
+    }
+
+    .premium-highlight {
+      color: #ffd966;
+      font-weight: 700;
+    }
+
+    .btn-light {
+      background: white;
+      color: #0b3d2e;
+      font-weight: 700;
+      padding: 14px 35px;
+      border-radius: 60px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 15px 25px -8px rgba(0, 0, 0, 0.2);
+      transition: 0.2s;
+    }
+
+    .btn-light:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 25px 35px -10px rgba(0, 0, 0, 0.3);
+    }
+
+    /* ===== STEPS SECTION ===== */
+    .steps-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin: 40px 0;
+    }
+
+    .step-item {
+      flex: 1 1 200px;
+      text-align: center;
+    }
+
+    .step-number {
+      background: #0b3d2e;
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin: 0 auto 20px;
+      box-shadow: 0 10px 15px -5px rgba(11, 61, 46, 0.3);
+    }
+
+    .step-item h4 {
+      font-size: 1.3rem;
+      color: #0b3d2e;
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+
+    .step-item p {
+      color: #3d6253;
+    }
+
+    /* ===== TESTIMONIALS ===== */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      margin: 40px 0;
+    }
+
+    .testimonial-card {
+      background: white;
+      border-radius: 30px;
+      padding: 30px;
+      box-shadow: 0 15px 30px -8px rgba(11, 61, 46, 0.08);
+    }
+
+    .stars {
+      color: #ffb347;
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+    }
+
+    .testimonial-text {
+      font-style: italic;
+      color: #1e3b30;
+      margin-bottom: 20px;
+      line-height: 1.7;
+    }
+
+    .customer {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .customer-avatar {
+      width: 55px;
+      height: 55px;
+      background: #e8f3ee;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      color: #0b3d2e;
+    }
+
+    .customer-info h5 {
+      font-size: 1.1rem;
+      color: #0b3d2e;
+      font-weight: 700;
+    }
+
+    .customer-info p {
+      font-size: 0.85rem;
+      color: #5e7a6e;
+    }
+
+    /* ===== CONTACT PREVIEW ===== */
+    .contact-preview {
+      background: white;
+      border-radius: 40px;
+      padding: 40px 35px;
+      margin: 50px 0 20px;
+      box-shadow: 0 20px 40px -12px rgba(11, 61, 46, 0.15);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .contact-info h3 {
+      font-size: 2rem;
+      color: #0b3d2e;
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+
+    .contact-detail {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 15px;
+    }
+
+    .contact-detail i {
+      width: 45px;
+      height: 45px;
+      background: #e8f3ee;
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #0b3d2e;
+      font-size: 1.3rem;
+    }
+
+    .schedule-btn {
+      background: #0b3d2e;
+      color: white;
+      padding: 16px 35px;
+      border-radius: 60px;
+      text-decoration: none;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      white-space: nowrap;
+      box-shadow: 0 15px 25px -8px rgba(11, 61, 46, 0.3);
+      transition: 0.2s;
+    }
+
+    .schedule-btn:hover {
+      background: #1a6043;
+      transform: translateY(-4px);
+    }
+
+    /* ===== BOTTOM NAVIGATION - WORKING ===== */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: white;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 10px 0 15px;
+      box-shadow: 0 -5px 20px rgba(0, 30, 10, 0.1);
+      border-top: 1px solid #e0eee8;
+      z-index: 1000;
+    }
+
+    .nav-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      color: #8a9e94;
+      font-size: 0.8rem;
+      font-weight: 500;
+      transition: 0.2s;
+      flex: 1;
+    }
+
+    .nav-item i {
+      font-size: 1.6rem;
+      margin-bottom: 5px;
+    }
+
+    .nav-item.active {
+      color: #0b3d2e;
+      font-weight: 700;
+    }
+
+    .nav-item.active i {
+      color: #0b3d2e;
+    }
+
+    /* ===== WHATSAPP FLOAT ===== */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 100px;
+      right: 25px;
+      background: #25D366;
+      color: white;
+      width: 65px;
+      height: 65px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      text-decoration: none;
+      box-shadow: 0 15px 25px -5px rgba(37, 211, 102, 0.4);
+      z-index: 999;
+      transition: 0.2s;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      background: #20b859;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media screen and (max-width: 600px) {
+      .logo span {
+        font-size: 1rem;
+      }
+      .call-btn span {
+        display: none;
+      }
+      .call-btn {
+        padding: 10px;
+      }
+      .hero {
+        padding: 40px 20px;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .contact-preview {
+        flex-direction: column;
+        text-align: center;
+      }
+      .contact-detail {
+        justify-content: center;
+      }
+      .whatsapp-float {
+        width: 55px;
+        height: 55px;
+        font-size: 2rem;
+        bottom: 90px;
+        right: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header>
+  <div class="logo">
+    <div class="logo-icon"><i class="fas fa-recycle"></i></div>
+    <span>Chaudhary Scrap</span>
+  </div>
+  <div class="header-actions">
+    <a href="tel:9084462757" class="call-btn">
+      <i class="fas fa-phone-alt"></i> <span>90844 62757</span>
+    </a>
+    <a href="https://wa.me/919084462757" target="_blank" class="whatsapp-icon">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+  </div>
+</header>
+
+<!-- ===== MAIN CONTENT ===== -->
+<div class="main-content">
+  
+  <!-- Hero Section -->
+  <div class="hero">
+    <div class="hero-content">
+      <h1>Bulk <span class="hero-highlight">Scrap</span> Buyer<br>Muzaffarnagar</h1>
+      <p>Best rates for newspaper, iron, aluminium • Free pickup • Same day payment</p>
+      <div class="hero-buttons">
+        <a href="rates.html" class="btn btn-primary"><i class="fas fa-tags"></i> Check Rates</a>
+        <a href="tel:9084462757" class="btn btn-outline"><i class="fas fa-phone"></i> Call Now</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Why Choose Us -->
+  <div class="section-title">
+    <h2>Why Choose Us</h2>
+    <p>Trusted by 500+ suppliers across Muzaffarnagar</p>
+  </div>
+
+  <div class="cards-grid">
+    <div class="card">
+      <div class="card-icon"><i class="fas fa-newspaper"></i></div>
+      <h3>Newspaper Specialist</h3>
+      <p>Best rates for newspaper scrap with direct mill tie-ups</p>
+    </div>
+    <div class="card">
+      <div class="card-icon"><i class="fas fa-weight-scale"></i></div>
+      <h3>Digital Weighing</h3>
+      <p>100% transparent digital weighbridge system</p>
+    </div>
+    <div class="card">
+      <div class="card-icon"><i class="fas fa-bolt"></i></div>
+      <h3>Same Day Payment</h3>
+      <p>Instant UPI / bank transfer after collection</p>
+    </div>
+    <div class="card">
+      <div class="card-icon"><i class="fas fa-truck"></i></div>
+      <h3>Free Pickup</h3>
+      <p>Free doorstep pickup for bulk quantity (min. 2 ton)</p>
+    </div>
+  </div>
+
+  <!-- Premium Banner -->
+  <div class="premium-banner">
+    <h2>Aapka Raddi, Extra Income 💰</h2>
+    <p>Bulk newspaper par <span class="premium-highlight">₹X7 Special Premium</span> advantage</p>
+    <a href="https://wa.me/919084462757" target="_blank" class="btn-light"><i class="fab fa-whatsapp"></i> WhatsApp Now</a>
+  </div>
+
+  <!-- How It Works -->
+  <div class="section-title">
+    <h2>How It Works</h2>
+    <p>3 simple steps to sell your scrap</p>
+  </div>
+
+  <div class="steps-container">
+    <div class="step-item">
+      <div class="step-number">1</div>
+      <h4>Call / WhatsApp</h4>
+      <p>Share your scrap details & quantity</p>
+    </div>
+    <div class="step-item">
+      <div class="step-number">2</div>
+      <h4>Free Pickup</h4>
+      <p>We visit your location with digital scale</p>
+    </div>
+    <div class="step-item">
+      <div class="step-number">3</div>
+      <h4>Instant Payment</h4>
+      <p>Get paid immediately via UPI/cash</p>
+    </div>
+  </div>
+
+  <!-- Testimonials -->
+  <div class="section-title">
+    <h2>What Our Customers Say</h2>
+    <p>Real reviews from happy suppliers</p>
+  </div>
+
+  <div class="testimonials-grid">
+    <div class="testimonial-card">
+      <div class="stars">
+        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+      </div>
+      <p class="testimonial-text">"Best rates in Muzaffarnagar for newspaper. Digital weighing and instant payment. Highly recommended!"</p>
+      <div class="customer">
+        <div class="customer-avatar"><i class="fas fa-user"></i></div>
+        <div class="customer-info">
+          <h5>Ramesh Kumar</h5>
+          <p>Newspaper supplier</p>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">
+        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+      </div>
+      <p class="testimonial-text">"Selling scrap since 3 years. Transparent weighing and always on time payment. Professional team."</p>
+      <div class="customer">
+        <div class="customer-avatar"><i class="fas fa-user"></i></div>
+        <div class="customer-info">
+          <h5>Sunil Aggarwal</h5>
+          <p>Bulk supplier</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact Preview -->
+  <div class="contact-preview">
+    <div>
+      <h3 style="font-size: 1.8rem; color: #0b3d2e; margin-bottom: 20px;">Get in Touch</h3>
+      <div class="contact-detail">
+        <i class="fas fa-map-pin"></i>
+        <span>Gaushala Road, Muzaffarnagar - 251001</span>
+      </div>
+      <div class="contact-detail">
+        <i class="fas fa-phone"></i>
+        <span>90844 62757</span>
+      </div>
+      <div class="contact-detail">
+        <i class="fas fa-clock"></i>
+        <span>Mon-Sat: 8AM - 8PM</span>
+      </div>
+    </div>
+    <a href="schedule.html" class="schedule-btn">
+      <i class="fas fa-calendar-alt"></i> Schedule Pickup
+    </a>
+  </div>
+</div>
+
+<!-- ===== BOTTOM NAVIGATION - WORKING ===== -->
+<div class="bottom-nav">
+  <a href="home.html" class="nav-item active">
+    <i class="fas fa-home"></i>
+    <span>Home</span>
+  </a>
+  <a href="rates.html" class="nav-item">
+    <i class="fas fa-tags"></i>
+    <span>Rates</span>
+  </a>
+  <a href="schedule.html" class="nav-item">
+    <i class="fas fa-calendar-alt"></i>
+    <span>Schedule</span>
+  </a>
+</div>
+
+<!-- ===== WHATSAPP FLOAT ===== -->
+<a href="https://wa.me/919084462757" target="_blank" class="whatsapp-float">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- ===== REDIRECT SCRIPT (Extra Safety) ===== -->
+<script>
+  // Agar koi issue ho to ye script ensure karega ki navigation work kare
+  document.querySelectorAll('.nav-item').forEach(link => {
+    link.addEventListener('click', function(e) {
+      // Let the browser handle navigation naturally
+      // Yeh bas active class update karega agar same page pe ho
+      const href = this.getAttribute('href');
+      if (window.location.pathname.includes(href)) {
+        e.preventDefault();
+        document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+        this.classList.add('active');
+      }
+      // Warna browser normal redirect karega
+    });
+  });
+</script>
+
+</body>
+</html>
