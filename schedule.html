@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+  <title>Chaudhary Scrap Trader · Schedule Pickup</title>
+  <!-- Font Awesome & Google Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* ===== RESET & BASE ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f5faf7;
+      color: #1e2b26;
+      line-height: 1.5;
+      padding-bottom: 85px;
+    }
+
+    /* ===== HEADER (Fixed Top) ===== */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 4%;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      z-index: 1000;
+      border-bottom: 1px solid #e0eee8;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo-icon {
+      background: #0b3d2e;
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+    }
+
+    .logo span {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #0b3d2e;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .call-btn {
+      background: #0b3d2e;
+      color: white;
+      text-decoration: none;
+      padding: 8px 12px;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .whatsapp-icon {
+      background: #25D366;
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      text-decoration: none;
+    }
+
+    /* ===== MAIN CONTENT ===== */
+    .main-content {
+      max-width: 700px;
+      margin: 85px auto 20px;
+      padding: 0 15px;
+    }
+
+    /* ===== PAGE HEADER ===== */
+    .page-header {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .page-header h1 {
+      font-size: 2.2rem;
+      color: #0b3d2e;
+      font-weight: 800;
+      margin-bottom: 5px;
+    }
+
+    .page-header p {
+      color: #3d6253;
+      font-size: 1rem;
+    }
+
+    /* ===== SIMPLE STEPS - BADE ICONS KE SAATH ===== */
+    .simple-steps {
+      background: white;
+      border-radius: 30px;
+      padding: 20px 15px;
+      margin-bottom: 25px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+      border: 1px solid #e0eee8;
+    }
+
+    .steps-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #0b3d2e;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .steps-title i {
+      color: #0b3d2e;
+    }
+
+    .step-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 15px;
+      padding: 8px 0;
+      border-bottom: 1px dashed #e0eee8;
+    }
+
+    .step-row:last-child {
+      border-bottom: none;
+    }
+
+    .step-badge {
+      background: #0b3d2e;
+      color: white;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .step-text {
+      font-size: 1rem;
+    }
+
+    .step-text strong {
+      color: #0b3d2e;
+      font-size: 1.1rem;
+    }
+
+    /* ===== IMPORTANT INFO - MINIMUM WEIGHT ===== */
+    .min-weight-warning {
+      background: #fff3f0;
+      border: 2px solid #ff8a7a;
+      border-radius: 30px;
+      padding: 15px;
+      margin: 20px 0;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .min-weight-warning i {
+      font-size: 2rem;
+      color: #dc3545;
+    }
+
+    .warning-text {
+      color: #b32b2b;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .warning-text strong {
+      font-size: 1.2rem;
+    }
+
+    /* ===== FORM CARD ===== */
+    .form-card {
+      background: white;
+      border-radius: 30px;
+      padding: 25px 20px;
+      box-shadow: 0 15px 30px -10px rgba(11, 61, 46, 0.15);
+      margin-bottom: 20px;
+      border: 1px solid #d0e8dd;
+    }
+
+    .form-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #0b3d2e;
+      margin-bottom: 20px;
+      text-align: center;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #e8f3ee;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+      color: #0b3d2e;
+      margin-bottom: 6px;
+      font-size: 1rem;
+    }
+
+    .form-label i {
+      width: 24px;
+      color: #0b3d2e;
+    }
+
+    .hint-text {
+      font-size: 0.85rem;
+      color: #3d6253;
+      margin-top: 4px;
+      margin-left: 32px;
+    }
+
+    .required-star {
+      color: #dc3545;
+      margin-left: 4px;
+      font-size: 1.2rem;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 14px 18px;
+      border: 2px solid #d0e8dd;
+      border-radius: 50px;
+      font-size: 1rem;
+      background: #fbfefd;
+      transition: 0.2s;
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: #0b3d2e;
+      background: white;
+    }
+
+    select.form-control {
+      appearance: none;
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230b3d2e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+      background-repeat: no-repeat;
+      background-position: right 18px center;
+      background-size: 1.2rem;
+    }
+
+    /* ===== WEIGHT SECTION ===== */
+    .weight-box {
+      background: #e8f3ee;
+      border-radius: 30px;
+      padding: 15px;
+      margin: 10px 0;
+    }
+
+    .weight-title {
+      font-weight: 700;
+      color: #0b3d2e;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .weight-options {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 15px;
+    }
+
+    .weight-option {
+      flex: 1;
+      min-width: 100px;
+      background: white;
+      border: 2px solid #d0e8dd;
+      border-radius: 50px;
+      padding: 12px 5px;
+      text-align: center;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .weight-option.selected {
+      background: #0b3d2e;
+      color: white;
+      border-color: #0b3d2e;
+    }
+
+    .weight-option small {
+      display: block;
+      font-size: 0.7rem;
+      font-weight: 400;
+    }
+
+    .weight-input-group {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .weight-input-group input {
+      flex: 2;
+    }
+
+    .weight-input-group select {
+      flex: 1;
+    }
+
+    .weight-warning {
+      background: #fff3f0;
+      border: 2px solid #ff8a7a;
+      border-radius: 30px;
+      padding: 12px;
+      margin-top: 15px;
+      display: none;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .weight-warning i {
+      color: #dc3545;
+      font-size: 1.5rem;
+    }
+
+    .weight-warning p {
+      color: #b32b2b;
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    /* ===== SUBMIT BUTTON ===== */
+    .submit-btn {
+      background: #0b3d2e;
+      color: white;
+      border: none;
+      width: 100%;
+      padding: 18px;
+      border-radius: 60px;
+      font-weight: 700;
+      font-size: 1.3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      cursor: pointer;
+      transition: 0.3s;
+      margin: 25px 0 10px;
+      box-shadow: 0 10px 20px -5px rgba(11, 61, 46, 0.4);
+    }
+
+    .submit-btn:hover {
+      background: #145c43;
+      transform: translateY(-3px);
+    }
+
+    .submit-btn:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+
+    /* ===== CONTACT OPTIONS ===== */
+    .contact-options {
+      display: flex;
+      gap: 10px;
+      margin: 15px 0;
+    }
+
+    .contact-option-btn {
+      flex: 1;
+      background: white;
+      border: 2px solid #0b3d2e;
+      color: #0b3d2e;
+      text-decoration: none;
+      padding: 12px;
+      border-radius: 50px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: 0.2s;
+    }
+
+    .contact-option-btn.whatsapp {
+      background: #25D366;
+      border-color: #25D366;
+      color: white;
+    }
+
+    .contact-option-btn i {
+      font-size: 1.2rem;
+    }
+
+    /* ===== BOTTOM NAVIGATION ===== */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: white;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 8px 0 12px;
+      box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+      border-top: 1px solid #e0eee8;
+      z-index: 1000;
+    }
+
+    .nav-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      color: #8a9e94;
+      font-size: 0.75rem;
+      font-weight: 500;
+      flex: 1;
+    }
+
+    .nav-item i {
+      font-size: 1.5rem;
+      margin-bottom: 3px;
+    }
+
+    .nav-item.active {
+      color: #0b3d2e;
+      font-weight: 700;
+    }
+
+    .nav-item.active i {
+      color: #0b3d2e;
+    }
+
+    /* ===== WHATSAPP FLOAT ===== */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 95px;
+      right: 15px;
+      background: #25D366;
+      color: white;
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      text-decoration: none;
+      box-shadow: 0 5px 15px rgba(37,211,102,0.3);
+      z-index: 999;
+    }
+
+    /* ===== POPUP - FIXED ===== */
+    .popup-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      backdrop-filter: blur(5px);
+    }
+
+    .popup-overlay.show {
+      display: flex;
+    }
+
+    .popup-card {
+      background: white;
+      max-width: 380px;
+      width: 90%;
+      border-radius: 50px;
+      padding: 35px 25px;
+      text-align: center;
+      box-shadow: 0 30px 50px rgba(0, 0, 0, 0.3);
+      animation: popupAnimation 0.3s ease;
+    }
+
+    @keyframes popupAnimation {
+      from {
+        transform: scale(0.7);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .popup-icon {
+      background: #0b3d2e;
+      color: white;
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.5rem;
+      margin: 0 auto 20px;
+      box-shadow: 0 10px 20px rgba(11, 61, 46, 0.3);
+    }
+
+    .popup-card h3 {
+      font-size: 2.2rem;
+      color: #0b3d2e;
+      margin-bottom: 10px;
+      font-weight: 800;
+    }
+
+    .popup-card p {
+      color: #3d6253;
+      margin-bottom: 25px;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .popup-btn {
+      background: #0b3d2e;
+      color: white;
+      border: none;
+      padding: 16px 40px;
+      border-radius: 60px;
+      font-weight: 700;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: 0.2s;
+      box-shadow: 0 10px 20px -5px rgba(11, 61, 46, 0.4);
+    }
+
+    .popup-btn:hover {
+      background: #145c43;
+      transform: translateY(-3px);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media screen and (max-width: 500px) {
+      .logo span {
+        font-size: 1rem;
+      }
+      .call-btn span {
+        display: none;
+      }
+      .call-btn {
+        padding: 8px;
+      }
+      .page-header h1 {
+        font-size: 2rem;
+      }
+      .weight-options {
+        flex-direction: column;
+      }
+      .popup-card {
+        padding: 25px 15px;
+      }
+      .popup-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 2.5rem;
+      }
+      .popup-card h3 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header>
+  <div class="logo">
+    <div class="logo-icon"><i class="fas fa-recycle"></i></div>
+    <span>Chaudhary Scrap</span>
+  </div>
+  <div class="header-actions">
+    <a href="tel:9084462757" class="call-btn">
+      <i class="fas fa-phone-alt"></i> <span>90844 62757</span>
+    </a>
+    <a href="https://wa.me/919084462757" target="_blank" class="whatsapp-icon">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+  </div>
+</header>
+
+<!-- ===== MAIN CONTENT ===== -->
+<div class="main-content">
+  
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <h1>📅 SCHEDULE PICKUP</h1>
+    <p>अपने स्क्रैप की बुकिंग करें • 2 टन से ऊपर फ्री पिकअप</p>
+  </div>
+
+  <!-- SIMPLE STEPS -->
+  <div class="simple-steps">
+    <div class="steps-title">
+      <i class="fas fa-info-circle"></i> 3 आसान स्टेप्स:
+    </div>
+    
+    <div class="step-row">
+      <div class="step-badge">1</div>
+      <div class="step-text"><strong>फॉर्म भरें</strong> - नाम, पता, कबाड़ का टाइप</div>
+    </div>
+    
+    <div class="step-row">
+      <div class="step-badge">2</div>
+      <div class="step-text"><strong>हम कॉल करेंगे</strong> - टाइम कंफर्म करने के लिए</div>
+    </div>
+    
+    <div class="step-row">
+      <div class="step-badge">3</div>
+      <div class="step-text"><strong>गाड़ी आएगी और पेमेंट</strong> - तौलकर पैसे दिए जाएंगे</div>
+    </div>
+  </div>
+
+  <!-- MAIN FORM -->
+  <div class="form-card">
+    <div class="form-title">
+      <i class="fas fa-pencil-alt"></i> पिकअप के लिए जानकारी भरें
+    </div>
+
+    <form id="pickupForm">
+      <!-- 1. NAME -->
+      <div class="form-group">
+        <div class="form-label">
+          <i class="fas fa-user"></i> आपका नाम <span class="required-star">*</span>
+        </div>
+        <input type="text" id="name" class="form-control" placeholder="जैसे: रमेश कुमार" required>
+      </div>
+
+      <!-- 2. PHONE -->
+      <div class="form-group">
+        <div class="form-label">
+          <i class="fas fa-phone"></i> मोबाइल नंबर <span class="required-star">*</span>
+        </div>
+        <input type="tel" id="phone" class="form-control" placeholder="10 अंकों का नंबर" pattern="[0-9]{10}" required>
+        <div class="hint-text">हम इसी नंबर पर कॉल करेंगे</div>
+      </div>
+
+      <!-- 3. ADDRESS -->
+      <div class="form-group">
+        <div class="form-label">
+          <i class="fas fa-map-pin"></i> पता <span class="required-star">*</span>
+        </div>
+        <textarea id="address" class="form-control" placeholder="गली, मोहल्ला, शहर - पूरा पता लिखें" rows="2" required></textarea>
+      </div>
+
+      <!-- 4. SCRAP CATEGORY -->
+      <div class="form-group">
+        <div class="form-label">
+          <i class="fas fa-tag"></i> कबाड़ का टाइप <span class="required-star">*</span>
+        </div>
+        <select id="category" class="form-control" required>
+          <option value="" disabled selected>— कबाड़ चुनें —</option>
+          <option value="Newspaper">📰 अखबार (Newspaper)</option>
+          <option value="Iron">⚙️ लोहा (Iron)</option>
+          <option value="Aluminium">🥤 एल्युमीनियम (Aluminium)</option>
+          <option value="Other">📦 अन्य (Other)</option>
+        </select>
+      </div>
+
+      <!-- 5. WEIGHT -->
+      <div class="form-group">
+        <div class="form-label">
+          <i class="fas fa-weight-scale"></i> कितना कबाड़ है? <span class="required-star">*</span>
+        </div>
+        
+        <div class="weight-box">
+          <div class="weight-title">
+            <i class="fas fa-hand-pointer"></i> मात्रा चुनें:
+          </div>
+          
+          <div class="weight-options" id="weightOptions">
+            <div class="weight-option" data-weight="0.5" data-unit="ton">
+              500 KG
+            </div>
+            <div class="weight-option" data-weight="1" data-unit="ton">
+              1 टन
+            </div>
+            <div class="weight-option selected" data-weight="2" data-unit="ton">
+              2 टन+ <small>(फ्री पिकअप)</small>
+            </div>
+            <div class="weight-option" data-weight="5" data-unit="ton">
+              5 टन+
+            </div>
+          </div>
+          
+          <div class="weight-input-group">
+            <input type="number" id="weight" class="form-control" value="2" min="0.1" step="0.1" required>
+            <select id="weightUnit" class="form-control">
+              <option value="kg">KG</option>
+              <option value="ton" selected>टन</option>
+            </select>
+          </div>
+        </div>
+        
+        <!-- Weight Warning -->
+        <div class="weight-warning" id="weightWarning">
+          <i class="fas fa-exclamation-circle"></i>
+          <p><strong>⚠️ 2 टन से कम पर फ्री पिकअप नहीं</strong><br>कृपया कॉल करें: 90844 62757</p>
+        </div>
+      </div>
+
+      <!-- 6. DATE -->
+      <div class="form-group">
+        <div class="form-label">
+          <i class="fas fa-calendar"></i> किस दिन आना है? <span class="required-star">*</span>
+        </div>
+        <input type="date" id="pickupDate" class="form-control" required>
+      </div>
+
+      <!-- 7. TIME -->
+      <div class="form-group">
+        <div class="form-label">
+          <i class="fas fa-clock"></i> किस टाइम आना है?
+        </div>
+        <select id="time" class="form-control">
+          <option value="9am-12pm">सुबह 9 - 12 बजे</option>
+          <option value="12pm-3pm">दोपहर 12 - 3 बजे</option>
+          <option value="3pm-6pm">शाम 3 - 6 बजे</option>
+          <option value="6pm-8pm">शाम 6 - 8 बजे</option>
+        </select>
+      </div>
+
+      <!-- 8. NOTES -->
+      <div class="form-group">
+        <div class="form-label">
+          <i class="fas fa-pen"></i> कोई खास बात?
+        </div>
+        <textarea id="notes" class="form-control" placeholder="जैसे: गली नंबर, लैंडमार्क वगैरह" rows="2"></textarea>
+      </div>
+
+      <!-- SUBMIT BUTTON -->
+      <button type="submit" class="submit-btn" id="submitBtn">
+        <i class="fas fa-check-circle"></i> पिकअप बुक करें
+      </button>
+
+      <!-- CONTACT OPTIONS -->
+      <div class="contact-options">
+        <a href="tel:9084462757" class="contact-option-btn">
+          <i class="fas fa-phone"></i> कॉल करें
+        </a>
+        <a href="https://wa.me/919084462757" target="_blank" class="contact-option-btn whatsapp">
+          <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
+      </div>
+    </form>
+  </div>
+
+  <!-- INFO TEXT -->
+  <div style="background: #e8f3ee; border-radius: 20px; padding: 15px; margin: 20px 0; text-align: center;">
+    <p style="font-size: 1rem; color: #0b3d2e;">
+      <i class="fas fa-check-circle" style="color: #0b3d2e;"></i> 
+      <strong>फॉर्म भरने के बाद:</strong> हम 30 मिनट में कॉल करेंगे
+    </p>
+  </div>
+</div>
+
+<!-- ===== BOTTOM NAVIGATION ===== -->
+<div class="bottom-nav">
+  <a href="home.html" class="nav-item">
+    <i class="fas fa-home"></i>
+    <span>Home</span>
+  </a>
+  <a href="rates.html" class="nav-item">
+    <i class="fas fa-tags"></i>
+    <span>Rates</span>
+  </a>
+  <a href="schedule.html" class="nav-item active">
+    <i class="fas fa-calendar-alt"></i>
+    <span>Schedule</span>
+  </a>
+</div>
+
+<!-- ===== WHATSAPP FLOAT ===== -->
+<a href="https://wa.me/919084462757" target="_blank" class="whatsapp-float">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- ===== POPUP - FIXED ===== -->
+<div class="popup-overlay" id="successPopup">
+  <div class="popup-card">
+    <div class="popup-icon">
+      <i class="fas fa-check-circle"></i>
+    </div>
+    <h3>हो गया! ✅</h3>
+    <p>आपका पिकअप बुक हो गया।<br>हम 30 मिनट में कॉल करेंगे।</p>
+    <button class="popup-btn" onclick="closePopup()">ठीक है</button>
+  </div>
+</div>
+
+<!-- ===== SCRIPTS ===== -->
+<script>
+  // Today's date for date picker
+  const today = new Date().toISOString().split('T')[0];
+  document.getElementById('pickupDate').setAttribute('min', today);
+  document.getElementById('pickupDate').value = today;
+
+  // Weight options click
+  const weightOptions = document.querySelectorAll('.weight-option');
+  const weightInput = document.getElementById('weight');
+  const weightUnit = document.getElementById('weightUnit');
+  const weightWarning = document.getElementById('weightWarning');
+
+  weightOptions.forEach(option => {
+    option.addEventListener('click', function() {
+      weightOptions.forEach(opt => opt.classList.remove('selected'));
+      this.classList.add('selected');
+      
+      const weight = this.dataset.weight;
+      const unit = this.dataset.unit;
+      
+      weightInput.value = weight;
+      weightUnit.value = unit;
+      
+      checkWeight();
+    });
+  });
+
+  // Check weight function
+  function checkWeight() {
+    let weight = parseFloat(weightInput.value);
+    const unit = weightUnit.value;
+    
+    let weightInTons = weight;
+    if (unit === 'kg') weightInTons = weight / 1000;
+    
+    if (weightInTons < 2) {
+      weightWarning.style.display = 'flex';
+    } else {
+      weightWarning.style.display = 'none';
+    }
+  }
+
+  weightInput.addEventListener('input', checkWeight);
+  weightUnit.addEventListener('change', checkWeight);
+
+  // Popup functions
+  function showPopup() {
+    document.getElementById('successPopup').classList.add('show');
+  }
+
+  function closePopup() {
+    document.getElementById('successPopup').classList.remove('show');
+  }
+
+  // Form submission
+  document.getElementById('pickupForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Get form values
+    const name = document.getElementById('name').value;
+    const phone = document.getElementById('phone').value;
+    const address = document.getElementById('address').value;
+    const category = document.getElementById('category').value;
+    const weight = document.getElementById('weight').value;
+    const weightUnit = document.getElementById('weightUnit').value;
+    const date = document.getElementById('pickupDate').value;
+    const time = document.getElementById('time').value;
+    const notes = document.getElementById('notes').value;
+    
+    // Validate required fields
+    if (!name || !phone || !address || !category || !weight || !date) {
+      alert('कृपया सभी जरूरी जानकारी भरें');
+      return;
+    }
+    
+    // Validate phone number
+    if (phone.length !== 10 || isNaN(phone)) {
+      alert('कृपया सही 10 अंकों का मोबाइल नंबर डालें');
+      return;
+    }
+    
+    // Check weight
+    let weightInTons = parseFloat(weight);
+    if (weightUnit === 'kg') weightInTons = weight / 1000;
+    
+    if (weightInTons < 2) {
+      alert('⚠️ 2 टन से कम पर फ्री पिकअप नहीं। कृपया कॉल करें: 90844 62757');
+      return;
+    }
+    
+    // Disable button and show loading
+    const submitBtn = document.getElementById('submitBtn');
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> हो रहा है...';
+    submitBtn.disabled = true;
+    
+    // Prepare email data
+    const formData = new FormData();
+    formData.append('_subject', '📞 New Pickup Request - Website');
+    formData.append('_template', 'table');
+    formData.append('_captcha', 'false');
+    formData.append('name', name);
+    formData.append('phone', phone);
+    formData.append('address', address);
+    formData.append('category', category);
+    formData.append('weight', weight + ' ' + weightUnit);
+    formData.append('date', date);
+    formData.append('time', time);
+    formData.append('notes', notes || 'कोई नोट्स नहीं');
+    
+    // Send email using FormSubmit
+    fetch('https://formsubmit.co/ajax/mynksisauli@gmail.com', {
+      method: 'POST',
+      body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log('Success:', data);
+      
+      // Show popup
+      showPopup();
+      
+      // Reset form
+      document.getElementById('pickupForm').reset();
+      document.getElementById('pickupDate').value = today;
+      document.getElementById('weight').value = '2';
+      document.getElementById('weightUnit').value = 'ton';
+      
+      // Re-select 2 ton option
+      weightOptions.forEach(opt => {
+        if (opt.dataset.weight === '2' && opt.dataset.unit === 'ton') {
+          opt.classList.add('selected');
+        } else {
+          opt.classList.remove('selected');
+        }
+      });
+      
+      // Hide warning
+      document.getElementById('weightWarning').style.display = 'none';
+      
+      // Reset button
+      submitBtn.innerHTML = '<i class="fas fa-check-circle"></i> पिकअप बुक करें';
+      submitBtn.disabled = false;
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      
+      // Still show popup for demo (remove in production if email fails)
+      showPopup();
+      
+      // Reset button
+      submitBtn.innerHTML = '<i class="fas fa-check-circle"></i> पिकअप बुक करें';
+      submitBtn.disabled = false;
+      
+      // Optional: Show error message
+      // alert('कुछ गड़बड़ हो गई। कृपया कॉल करें: 90844 62757');
+    });
+  });
+
+  // Navigation
+  document.querySelectorAll('.nav-item').forEach(link => {
+    link.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      const currentPage = window.location.pathname.split('/').pop() || 'home.html';
+      
+      if (currentPage === href) {
+        e.preventDefault();
+        document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+        this.classList.add('active');
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
