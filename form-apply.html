@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chaudhary Traders - Recruitment Form 2026</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f0f4f8;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        $green: #1ECD97;
+$gray: #bbbbbb;
+
+.container2 {
+  position: absolute;
+  top:50%;
+  left:50%;
+  margin-left: -65px;
+  margin-top: -20px;
+  width: 130px;
+  height: 40px;
+  text-align: center;
+}
+button2 {
+  outline:none;
+  height: 40px;
+  text-align: center;
+  width: 130px;
+  border-radius:40px;
+  background: #fff;
+  border: 2px solid $green;
+  color:$green;
+  letter-spacing:1px;
+  text-shadow:0;
+  font:{
+    size:12px;
+    weight:bold;
+  }
+  cursor: pointer;
+  transition: all 0.25s ease;
+  &:hover {
+    color:white;
+    background: $green;
+  }
+  &:active {
+    //letter-spacing: 2px;
+    letter-spacing: 2px ;
+  }
+  &:after {
+    content:"SUBMIT";
+  }
+}
+.onclic {
+  width: 40px;
+  border-color:$gray;
+  border-width:3px;
+  font-size:0;
+  border-left-color:$green;
+  animation: rotating 2s 0.25s linear infinite;
+
+  &:after {
+    content:"";
+  }
+  &:hover {
+    color:$green;
+    background: white;
+  }
+}
+.validate {
+  font-size:13px;
+  color: white;
+  background: $green;
+  &:after {
+    font-family:'FontAwesome';
+    content:"\f00c";
+  }
+}
+
+@keyframes rotating {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+        /* Print styles - yeh sab print mein perfect aayega */
+        @media print {
+            body {
+                background: white;
+                padding: 0.5cm;
+            }
+            .container {
+                box-shadow: none !important;
+                border: 1px solid #000 !important;
+                padding: 0.7cm !important;
+            }
+            .header h1 {
+                color: black !important;
+            }
+            .submit-btn, .note {
+                display: none !important;
+            }
+            input, select, textarea {
+                border: 1px solid #000 !important;
+                background: white !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            @page {
+                size: A4;
+                margin: 1.2cm;
+            }
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            background: white;
+            padding: 30px 35px;
+            border-radius: 12px;
+            box-shadow: 0 15px 35px rgba(0, 40, 20, 0.2);
+            border: 1px solid #2e5a44;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 25px;
+            border-bottom: 3px solid #1a4a3a;
+            padding-bottom: 15px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            color: #1a4a3a;
+            font-weight: 800;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .header h3 {
+            font-size: 1.3rem;
+            color: #b8860b;
+            font-weight: 600;
+            margin: 5px 0;
+        }
+
+        .header p {
+            font-size: 1rem;
+            color: #333;
+            font-weight: 500;
+        }
+
+        /* Form Layout - Ekdum compact */
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px 20px;
+        }
+
+        /* Section Headers */
+        .section-title {
+            grid-column: 1 / -1;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1a4a3a;
+            margin: 10px 0 5px 0;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #b8860b;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Form Groups */
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group.full-width {
+            grid-column: span 3;
+        }
+
+        .form-group.half-width {
+            grid-column: span 1;
+        }
+
+        label {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #1a4a3a;
+            margin-bottom: 4px;
+        }
+
+        .required::after {
+            content: " *";
+            color: #dc3545;
+            font-weight: bold;
+        }
+
+        input, select, textarea {
+            padding: 8px 10px;
+            border: 1.5px solid #2e5a44;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            background: #fff;
+            width: 100%;
+        }
+
+        /* Compact for print */
+        input, select {
+            height: 35px;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 60px;
+        }
+
+        /* Checkbox group */
+        .checkbox-group {
+            grid-column: 1 / -1;
+            margin: 15px 0 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .checkbox-group input {
+            width: 18px;
+            height: 18px;
+            margin: 0;
+        }
+
+        .checkbox-group label {
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        /* Buttons - Yeh print mein chhup jayenge */
+        .button-group {
+            grid-column: 1 / -1;
+            display: flex;
+            gap: 15px;
+            margin: 20px 0 5px;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.2s;
+            flex: 1;
+        }
+
+        .btn-primary {
+            background: #1a4a3a;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #0f3529;
+        }
+
+        .btn-secondary {
+            background: #b8860b;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #9e7409;
+        }
+
+        /* Print note */
+        .print-note {
+            grid-column: 1 / -1;
+            text-align: center;
+            margin: 10px 0;
+            padding: 8px;
+            background: #e8f0ec;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            color: #1a4a3a;
+            border: 1px dashed #b8860b;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .form-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .form-group.full-width {
+                grid-column: span 2;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            .form-group.full-width {
+                grid-column: span 1;
+            }
+            .container {
+                padding: 15px;
+            }
+        }
+
+        /* Signature line for offline fill */
+        .signature-area {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 25px;
+            padding-top: 15px;
+            border-top: 2px dashed #1a4a3a;
+        }
+
+        .signature-box {
+            text-align: center;
+        }
+
+        .signature-line {
+            margin-top: 40px;
+            border-bottom: 2px solid #000;
+            width: 100%;
+        }
+
+        .signature-box p {
+            font-size: 0.85rem;
+            color: #555;
+            margin-top: 5px;
+        }
+
+        /* Official stamp area */
+        .stamp-area {
+            grid-column: 1 / -1;
+            display: flex;
+            justify-content: flex-end;
+            margin: 15px 0;
+        }
+
+        .stamp-box {
+            width: 150px;
+            height: 80px;
+            border: 2px dashed #b8860b;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            color: #b8860b;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>CHAUDHARY TRADERS</h1>
+            <h3>Supply & Scrap Management Division</h3>
+            <p>Area Supply Manager Recruitment Form - 2026</p>
+        </div>
+
+        <!-- Main Form - Compact Grid -->
+        <form class="form-grid">
+            <!-- 1. Personal Details Section -->
+            <div class="section-title">1. Personal Details</div>
+            
+            <div class="form-group half-width">
+                <label class="required">Full Name</label>
+                <input type="text" placeholder="Your full name">
+            </div>
+            
+            <div class="form-group half-width">
+                <label class="required">Father's Name</label>
+                <input type="text" placeholder="Father's name">
+            </div>
+            
+            <div class="form-group half-width">
+                <label class="required">Mother's Name</label>
+                <input type="text" placeholder="Mother's name">
+            </div>
+            
+            <div class="form-group half-width">
+                <label class="required">Date of Birth</label>
+                <input type="date">
+            </div>
+            
+            <div class="form-group half-width">
+                <label class="required">Age</label>
+                <input type="number" placeholder="18+">
+            </div>
+            
+            <div class="form-group half-width">
+                <label class="required">Gender</label>
+                <select>
+                    <option>Male</option>
+                    <option>Female</option>
+                    <option>Other</option>
+                </select>
+            </div>
+
+            <!-- 2. Contact Details -->
+            <div class="section-title">2. Contact Details</div>
+            
+            <div class="form-group half-width">
+                <label class="required">Mobile Number</label>
+                <input type="tel" placeholder="10 digits">
+            </div>
+            
+            <div class="form-group half-width">
+                <label class="required">Email ID</label>
+                <input type="email" placeholder="email@example.com">
+            </div>
+            
+            <div class="form-group full-width">
+                <label class="required">Current Address</label>
+                <textarea rows="2" placeholder="Full address..."></textarea>
+            </div>
+            
+            <div class="form-group full-width">
+                <label class="required">Permanent Address</label>
+                <textarea rows="2" placeholder="Full address..."></textarea>
+            </div>
+
+            <!-- 3. Identity & Bank Details -->
+            <div class="section-title">3. Identity & Bank Details</div>
+            
+            <div class="form-group half-width">
+                <label class="required">Aadhar Number</label>
+                <input type="text" maxlength="12" placeholder="12 digits">
+            </div>
+            
+            <div class="form-group half-width">
+                <label>PAN Number</label>
+                <input type="text" placeholder="ABCDE1234F">
+            </div>
+            
+            <div class="form-group half-width">
+                <label class="required">Bank Account No.</label>
+                <input type="text" placeholder="Account number">
+            </div>
+            
+            <div class="form-group half-width">
+                <label class="required">IFSC Code</label>
+                <input type="text" placeholder="SBIN0001234">
+            </div>
+
+            <!-- 4. Educational Qualification -->
+            <div class="section-title">4. Educational Qualification</div>
+            
+            <div class="form-group half-width">
+                <label class="required">10th Percentage</label>
+                <input type="text" placeholder="e.g., 85%">
+            </div>
+            
+            <div class="form-group half-width">
+                <label class="required">12th Percentage</label>
+                <input type="text" placeholder="e.g., 78%">
+            </div>
+            
+            <div class="form-group full-width">
+                <label class="required">Highest Qualification</label>
+                <input type="text" placeholder="e.g., B.Com, BA, etc.">
+            </div>
+
+            <!-- 5. Work Details -->
+            <div class="section-title">5. Work Details</div>
+            
+            <div class="form-group half-width">
+                <label class="required">Preferred Work Area</label>
+                <input type="text" placeholder="City/Region">
+            </div>
+            
+            <div class="form-group half-width">
+                <label class="required">Experience (years)</label>
+                <input type="number" placeholder="0 if fresher">
+            </div>
+            
+            <div class="form-group full-width">
+                <label class="required">3 Day Target Plan</label>
+                <textarea rows="2" placeholder="Brief strategy..."></textarea>
+            </div>
+
+            <!-- Declaration -->
+            <div class="checkbox-group">
+                <input type="checkbox" id="declare">
+                <label for="declare">I declare that all information provided is true and correct.</label>
+            </div>
+
+            <!-- Signature Area for Offline Print -->
+            <div class="signature-area">
+                <div class="signature-box">
+                    <p>Applicant's Signature</p>
+                    <div class="signature-line"></div>
+                    <p>(Sign above)</p>
+                </div>
+                <div class="signature-box">
+                    <p>Date</p>
+                    <div class="signature-line"></div>
+                    <p>(DD/MM/YYYY)</p>
+                </div>
+            </div>
+
+            <!-- Official Stamp Area -->
+            <div class="stamp-area">
+                <div class="stamp-box">
+                    (For Office Use)
+                </div>
+            </div>
+
+            <!-- Print Note -->
+<div class="container2">
+  <button id="button2">Submit</button>
+</div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Font Awesome (optional, but recommended) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Simple JS for print -->
+    <script>
+        function printForm() {
+            window.print();
+        }
+        
+        $(function() {
+  $( "#button2" ).click(function() {
+    $( "#button2" ).addClass( "onclic", 250, validate);
+  });
+
+  function validate() {
+    setTimeout(function() {
+      $( "#button2" ).removeClass( "onclic" );
+      $( "#button2" ).addClass( "validate", 450, callback );
+    }, 2250 );
+  }
+    function callback() {
+      setTimeout(function() {
+        $( "#button2" ).removeClass( "validate" );
+      }, 1250 );
+    }
+  });
+    </script>
+</body>
+</html>
