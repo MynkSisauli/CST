@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>⚠️ Error · Offline Form · ₹149 Fee</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            background: #fef2f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            min-height: 100vh;
+        }
+
+        /* Main Container - Perfectly Fitted */
+        .error-container {
+            width: 100%;
+            max-width: 750px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 40px;
+            padding: 25px 25px;
+            box-shadow: 0 30px 60px -15px rgba(220, 53, 69, 0.3);
+            border: 3px solid #dc3545;
+            position: relative;
+            max-height: 98vh;
+            overflow-y: auto;
+            scrollbar-width: thin;
+        }
+
+        /* Hide scrollbar for Chrome but keep functionality */
+        .error-container::-webkit-scrollbar {
+            width: 5px;
+        }
+        .error-container::-webkit-scrollbar-thumb {
+            background: #dc3545;
+            border-radius: 10px;
+        }
+
+        /* Error Header */
+        .error-header {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .error-icon {
+            font-size: 4rem;
+            color: #dc3545;
+            margin-bottom: 5px;
+            animation: shake 0.5s infinite alternate;
+        }
+
+        @keyframes shake {
+            0% { transform: rotate(-3deg); }
+            100% { transform: rotate(3deg); }
+        }
+
+        .error-code {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #dc3545;
+            line-height: 1.1;
+            letter-spacing: 1px;
+        }
+
+        .error-title {
+            font-size: 1.3rem;
+            color: #b32b2b;
+            background: #ffe6e6;
+            padding: 5px 15px;
+            border-radius: 40px;
+            display: inline-block;
+            margin: 8px 0;
+        }
+
+        /* Error Message Box - Compact */
+        .error-message {
+            background: #fff3f0;
+            border: 2px solid #ff8a7a;
+            border-radius: 25px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .error-message p {
+            font-size: 1rem;
+            color: #b32b2b;
+            text-align: center;
+        }
+
+        .error-message i {
+            margin: 0 5px;
+        }
+
+        /* Offline Badge */
+        .offline-badge {
+            background: #0b3d2e;
+            color: white;
+            padding: 12px;
+            border-radius: 30px;
+            text-align: center;
+            margin: 15px 0;
+            border: 2px solid #d4a11e;
+        }
+
+        .offline-badge h3 {
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .offline-badge p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        /* Fee Box - Highlight */
+        .fee-box {
+            background: linear-gradient(145deg, #d4a11e, #f0b800);
+            border-radius: 50px;
+            padding: 15px;
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            border: 2px solid white;
+        }
+
+        .fee-icon {
+            background: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: #0b3d2e;
+        }
+
+        .fee-amount {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: white;
+            line-height: 1;
+        }
+
+        .fee-text {
+            color: white;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .fee-note {
+            color: white;
+            font-size: 0.8rem;
+            background: rgba(0,0,0,0.1);
+            padding: 3px 10px;
+            border-radius: 20px;
+        }
+
+        /* Instructions - Compact */
+        .instructions {
+            background: #f0f8f3;
+            border-radius: 25px;
+            padding: 15px;
+            margin: 15px 0;
+            border: 1px solid #0b3d2e;
+        }
+
+        .instructions h4 {
+            font-size: 1.1rem;
+            color: #0b3d2e;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .step-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 10px 0;
+            font-size: 0.95rem;
+        }
+
+        .step-item i {
+            color: #d4a11e;
+            width: 22px;
+            font-size: 1rem;
+        }
+
+        /* Download Button */
+        .download-btn {
+            background: #0b3d2e;
+            color: white;
+            text-decoration: none;
+            padding: 14px;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin: 15px 0;
+            border: 2px solid #d4a11e;
+            width: 100%;
+            cursor: pointer;
+        }
+
+        .download-btn i {
+            font-size: 1.2rem;
+        }
+
+        /* Contact Info - Compact */
+        .contact-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 15px;
+            padding-top: 10px;
+            border-top: 2px dashed #dc3545;
+            font-size: 0.9rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: #3d6253;
+        }
+
+        .contact-item i {
+            color: #d4a11e;
+            font-size: 0.9rem;
+        }
+
+        /* Footer Note */
+        .footer-note {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #8a9e94;
+            margin-top: 10px;
+        }
+
+        /* Responsive for very small screens */
+        @media (max-width: 400px) {
+            .error-container {
+                padding: 15px;
+            }
+            .error-code {
+                font-size: 2.2rem;
+            }
+            .fee-amount {
+                font-size: 2rem;
+            }
+            .offline-badge h3 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <!-- Error Header -->
+        <div class="error-header">
+            <div class="error-icon">
+                <i class="fas fa-exclamation-triangle"></i>
+            </div>
+            <div class="error-code">
+                ERROR 503
+            </div>
+            <div class="error-title">
+                <i class="fas fa-plug"></i> SERVER OFFLINE <i class="fas fa-plug"></i>
+            </div>
+        </div>
+
+        <!-- Error Message -->
+        <div class="error-message">
+            <p>
+                <i class="fas fa-skull"></i> 
+                <strong>SYSTEM CRASH</strong> 
+                <i class="fas fa-skull"></i>
+            </p>
+            <p style="font-size: 0.9rem; margin-top: 5px;">
+                Online form server down • ऑनलाइन फॉर्म सर्वर बंद
+            </p>
+        </div>
+
+        <!-- Offline Badge -->
+        <div class="offline-badge">
+            <h3>
+                <i class="fas fa-file-pdf"></i> 
+                OFFLINE FORM ONLY
+                <i class="fas fa-file-pdf"></i>
+            </h3>
+            <p>फॉर्म डाउनलोड करें • Download form</p>
+        </div>
+
+        <!-- Fee Box - ₹149 -->
+        <div class="fee-box">
+            <div class="fee-icon">
+                <i class="fas fa-rupee-sign"></i>
+            </div>
+            <div>
+                <div class="fee-amount">₹149</div>
+                <div class="fee-text">Application Fee</div>
+            </div>
+            <div class="fee-note">
+                Non-refundable
+            </div>
+        </div>
+
+        <!-- Instructions -->
+        <div class="instructions">
+            <h4>
+                <i class="fas fa-list"></i>
+                How to Apply:
+            </h4>
+            
+            <div class="step-item">
+                <i class="fas fa-1"></i>
+                <span>Download form below</span>
+            </div>
+            <div class="step-item">
+                <i class="fas fa-2"></i>
+                <span>Fill all details in CAPITAL letters</span>
+            </div>
+            <div class="step-item">
+                <i class="fas fa-3"></i>
+                <span>Attach ₹149 fee (Cash/UPI)</span>
+            </div>
+            <div class="step-item">
+                <i class="fas fa-4"></i>
+                <span>Submit at nearest center</span>
+            </div>
+        </div>
+
+        <!-- Download Button -->
+        <button class="download-btn" onclick="alert('📥 Form download started!\nफॉर्म डाउनलोड शुरू!')">
+            <i class="fas fa-download"></i>
+            DOWNLOAD FORM (PDF)
+            <i class="fas fa-file-pdf"></i>
+        </button>
+
+        <!-- Contact Info -->
+        <div class="contact-row">
+            <div class="contact-item">
+                <i class="fas fa-phone-alt"></i>
+                <span>9054711657</span>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <span>support@ct.in</span>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-map-pin"></i>
+                <span>UP</span>
+            </div>
+        </div>
+
+        <!-- Footer Note -->
+        <div class="footer-note">
+            <i class="fas fa-print"></i> Offline forms accepted until server restart
+        </div>
+    </div>
+</body>
+</html>
